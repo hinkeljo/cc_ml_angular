@@ -1,0 +1,23 @@
+<div class="form">
+    <div class="col">
+        <p class="label">Category:</p>
+        <select name="category" id="category" [(ngModel)]="selected_category">
+            <option *ngFor="let category of categories" [ngValue]="category">
+                {{category.name}}
+            </option>
+        </select>
+    </div>
+    <div class="col">
+        <p class="label">Search term:</p>
+        <input type="text" [(ngModel)]="search_query">
+    </div>
+    <button (click)="getFact()">Get fact!</button>
+</div>
+
+<div class="result">
+    <h2>Your Chuck Norris fact:</h2>
+    <p *ngIf="fact != undefined && error == undefined">{{fact.value}}</p>
+    <p class="error" *ngIf="error != undefined">{{error}}</p>
+</div>
+
+<br>
